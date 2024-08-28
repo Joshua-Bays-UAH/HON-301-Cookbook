@@ -1,0 +1,11 @@
+\newcommand{\centered}[1]{\begin{tabular}{l} #1 \end{tabular}}
+
+\newcommand{\bioEntry}[2]{
+
+\begin{tabular}{c c}
+	\raisebox{-.5\height}{
+	\roundpic{4cm}{4cm}{#1}} & 
+	\centered{\fontsize{16}{16}\selectfont #2}\\
+\end{tabular}
+
+}

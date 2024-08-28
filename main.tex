@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{anyfontsize}
+\usepackage[letterpaper, margin=.5in]{geometry}
+\usepackage[dvipsnames*, svgnames]{xcolor}
+\usepackage{pagecolor}
+\usepackage{titlesec}
+\usepackage{tikz}
+%\usepackage{vcell}
+\input{functions.tex}
+
+
+\pagenumbering{gobble}
+
+\newcommand{\roundpic}[4][]{
+  \tikz\node [circle, minimum width = #2,
+    path picture = {
+      \node [#1] at (path picture bounding box.center) {
+        \includegraphics[width=#3]{#4}};
+    }] {};}
+
+
+\begin{document}\fontsize{12}{12}\selectfont
+{\begin{center}\fontsize{48}{48}\selectfont
+\textcolor{white}{\textbf{Meet the Authors}}
+\end{center}}
+\vspace{.75in}
+
+\pagecolor{red!0!green!25!blue!50}
+%\roundpic{4cm}{4cm}{headshot.jpg}} & \centered{\fontsize{16}{16}\selectfont Hi}\\
+\bioEntry{headshot.jpg}{PANCAKES}\vspace{1cm}\noindent
+\bioEntry{headshot.jpg}{PANCAKES}\vspace{1cm}\noindent
+\bioEntry{headshot.jpg}{PANCAKES}%\\\\\vspace{2cm}\noindent
+
+hi
+
+\end{document}
