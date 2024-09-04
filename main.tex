@@ -1,8 +1,9 @@
-\documentclass{book}
+\documentclass[twoside]{report}
 \usepackage{anyfontsize}
 \usepackage{fancyhdr}
 \usepackage[papersize={9in, 11in}, margin=.6in]{geometry}
 \usepackage[dvipsnames, svgnames]{xcolor}
+\usepackage{multicol}
 \usepackage{multicol}
 \usepackage{pagecolor}
 \usepackage{titlesec}
@@ -12,9 +13,22 @@
 \input{functions.tex}
 \renewcommand{\headrulewidth}{0pt}
 
-\fancyhf{}
 \pagenumbering{arabic}
+\fancyhf{}
 \titleformat{\section}{\fontsize{22}{22}\selectfont\bfseries}{}{0em}{}
+
+\makeatletter
+\newcommand{\addchapter}[1]{%
+  \begingroup
+  \let\@makechapterhead\@gobble % make \@makechapterhead do nothing
+  \addcontentsline{toc}{chapter}{#1}
+  \endgroup
+}
+\makeatother
+
+
+\newcommand{\secCol}{Black}
+\newcommand{\txtCol}{Black}
 
 \begin{document}\fontsize{12}{12}\selectfont
 \pagenumbering{gobble}
@@ -44,56 +58,12 @@ contents={}
 \pagestyle{fancy}
 \fancyhead[LO, RE]{\fontsize{20}{20}\selectfont\thepage}
 %\fancyhead[EL]{\fontsize{20}{20}\selectfont\thepage}
-\pagecolor{red!0!green!25!blue!50}
+\pagecolor{white}
+
+\tableofcontents
 
 \include{authors.tex}
-
-\pagecolor{Apricot}
-{\begin{center}\fontsize{48}{48}\selectfont
-\textcolor{Bittersweet}{\textbf{Peanut Butter and Jelly Sandwiches}}
-\end{center}}
-
-\begin{center}
-\vspace{.25in}
-\includegraphics[height=1.5in]{images/pbj.jpg}
-\end{center}
-
-\textcolor{Sepia}{\section{Ingredients}}\fontsize{12}{12}\selectfont
-\begin{multicols}{2}
-\begin{enumerate}
-\item Peanut butter
-\item Jelly
-\item 2 slices of bread
-\item INGREDIENT
-\item INGREDIENT
-\item INGREDIENT
-\item INGREDIENT
-\item INGREDIENT
-\item INGREDIENT
-\\
-\end{enumerate}
-\end{multicols}
-
-\textcolor{Sepia}{\section{Instructions}}\fontsize{12}{12}\selectfont
-\begin{multicols}{2}
-\begin{enumerate}
-\item Put the peanut butter on a slice of bread
-\item Put the jelly on the piece of bread
-\item Put the 2 bread slices together
-\item INSTRUCTIONS
-\item INSTRUCTIONS
-\item INSTRUCTIONS
-\item INSTRUCTIONS
-\item INSTRUCTIONS
-\item INSTRUCTIONS
-\\
-\end{enumerate}
-\end{multicols}
-
-\textcolor{Sepia}{\section{Cultural Context}}\fontsize{14}{14}\selectfont
-\noindent
-Peanut Butter and Jelly Sandwiches are an essential part of any traditional suburban American household.
-While strawberry jelly is preferred because it is better, one could also use grape.
-\\
+\include{sample-recipe-1.tex}
+\include{sample-recipe-2.tex}
 
 \end{document}
