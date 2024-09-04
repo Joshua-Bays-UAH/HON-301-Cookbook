@@ -1,11 +1,17 @@
+\newcommand{\roundpic}[7]{
+\begin{tikzpicture}
+\clip (#2,#3) circle (#4);
+\node[anchor=center] at (#5, #6){\includegraphics[width=#7]{#1}};
+\end{tikzpicture}
+}
+
 \newcommand{\centered}[1]{\begin{tabular}{l} #1 \end{tabular}}
 
-\newcommand{\bioEntry}[2]{
+\newcommand{\bioEntry}[8]{
 
 \begin{tabular}{c c}
 	\raisebox{-.5\height}{
-	\roundpic{4cm}{4cm}{#1}} & 
-	\centered{\fontsize{16}{16}\selectfont #2}\\
+	\roundpic{#1}{#2}{#3}{#4}{#5}{#6}{#7}} & 
+	\centered{\fontsize{16}{16}\selectfont #8}\\
 \end{tabular}
-
 }
